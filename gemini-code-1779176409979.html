@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabuj Book Hub | Premium Student Bookstore</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        hubGreen: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        academicStone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            700: '#44403c',
+                            850: '#262524',
+                            900: '#1c1917',
+                            950: '#0c0a09',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .font-serif {
+            font-family: 'Lora', serif;
+        }
+    </style>
+</head>
+<body class="bg-academicStone-50 text-academicStone-900 dark:bg-academicStone-950 dark:text-academicStone-50 flex flex-col min-h-screen antialiased">
+
+    <!-- NAVBAR LAYER -->
+    <nav class="sticky top-0 z-50 bg-white/90 dark:bg-academicStone-900/90 backdrop-blur-md shadow-sm border-b-2 border-hubGreen-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-hubGreen-700 text-white p-2.5 rounded-xl shadow-md shadow-hubGreen-700/20">
+                    <i class="fa-solid fa-book-bookmark text-xl"></i>
+                </div>
+                <span class="text-xl md:text-2xl font-bold font-serif tracking-tight bg-gradient-to-r from-hubGreen-800 to-hubGreen-600 bg-clip-text text-transparent dark:from-hubGreen-600 dark:to-hubGreen-500">
+                    SABUJ_BOOK_HUB
+                </span>
+            </div>
+            
+            <button id="hubThemeEngineToggle" class="p-2.5 rounded-xl border border-academicStone-200 dark:border-academicStone-700 bg-academicStone-100 dark:bg-academicStone-800 text-amber-600 dark:text-yellow-300 hover:scale-105 active:scale-95 transition-all">
+                <i class="fa-solid fa-moon text-xl dark:hidden"></i>
+                <i class="fa-solid fa-sun text-xl hidden dark:block"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ACADEMIC HERO HEADER -->
+    <header class="relative overflow-hidden bg-gradient-to-br from-academicStone-900 to-hubGreen-900 text-white py-16 md:py-20">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#16a34a_1px,transparent_1px)] [background-size:20px_20px]"></div>
+        <div class="relative z-10 max-w-5xl mx-auto text-center px-4">
+            <span class="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-widest bg-hubGreen-600/20 text-hubGreen-100 border border-hubGreen-600/30 mb-4">
+                📚 Luxury Student Resource Portal
+            </span>
+            <h1 class="text-4xl md:text-5xl font-bold font-serif tracking-tight mb-4">
+                Premium Knowledge, Delivered Seamlessly
+            </h1>
+            <p class="text-academicStone-200 max-w-2xl mx-auto text-sm md:text-base font-light leading-relaxed">
+                Access standard curriculum text models, interactive guides, and reference material with on-demand digital procurement processing for university students.
+            </p>
+        </div>
+    </header>
+
+    <!-- CORE INTERACTION PANEL CONTAINER -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full space-y-16">
+        
+        <!-- SECTION: READ (BOOK CATALOG GALLERY) -->
+        <section id="catalogSection">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 border-b border-academicStone-200 dark:border-academicStone-800 pb-4 gap-2">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold font-serif tracking-tight inline-flex items-center gap-2.5">
+                        <span class="text-hubGreen-700"><i class="fa-solid fa-graduation-cap"></i></span> Available Textbook Catalog
+                    </h2>
+                    <p class="text-sm text-academicStone-700 dark:text-academicStone-400 mt-0.5">Browse core text assets ready for immediate dispatch and student registration</p>
+                </div>
+            </div>
+            
+            <div id="bookShowcaseGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically Injected via Runtime Engine -->
+            </div>
+        </section>
+
+        <!-- SECTION: CREATE/UPDATE/DELETE (ACTIVE LOGISTICS STREAM) -->
+        <section id="orderTrackerSection" class="scroll-mt-24">
+            <div class="mb-8 border-b border-academicStone-200 dark:border-academicStone-800 pb-4">
+                <h2 class="text-2xl md:text-3xl font-bold font-serif tracking-tight inline-flex items-center gap-2.5">
+                    <span class="text-hubGreen-700"><i class="fa-solid fa-receipt"></i></span> Live Student Order Tracker
+                </h2>
+                <p class="text-sm text-academicStone-700 dark:text-academicStone-400 mt-0.5">Manage, modify destination data, or cancel pipeline request streams instantly</p>
+            </div>
+
+            <!-- Empty Array State Frame -->
+            <div id="emptyCatalogState" class="bg-white dark:bg-academicStone-900 rounded-2xl p-12 text-center border-2 border-dashed border-academicStone-200 dark:border-academicStone-800 shadow-sm">
+                <div class="w-14 h-14 bg-academicStone-100 dark:bg-academicStone-800 text-academicStone-400 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <i class="fa-solid fa-book-open-reader text-xl"></i>
+                </div>
+                <h3 class="text-base font-bold text-academicStone-700 dark:text-academicStone-300">No Active Requests Active</h3>
+                <p class="text-academicStone-700 dark:text-academicStone-400 text-xs max-w-xs mx-auto mt-1">Your personal processing queue is clear. Select any premium book resource variant item above to launch a checkout form.</p>
+            </div>
+
+            <!-- Hydrated Orders Render Grid -->
+            <div id="activeOrdersLayoutGrid" class="hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Injected via state data structures -->
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER FRAME WITH TARGET METADATA STRUCTURES -->
+    <footer class="bg-academicStone-900 text-academicStone-100 border-t-4 border-hubGreen-700 mt-auto transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                <div class="space-y-3">
+                    <span class="text-lg font-bold font-serif tracking-wider text-white">SABUJ_BOOK_HUB</span>
+                    <p class="text-academicStone-200 text-xs leading-relaxed max-w-sm">
+                        Optimized database node delivering high-tier scholastic tools directly to learning environments. Powered by lightning fast storage sync configurations.
+                    </p>
+                </div>
+                
+                <div class="lg:col-span-2 bg-academicStone-850 p-5 rounded-2xl border border-academicStone-700 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest font-bold text-hubGreen-600 mb-2">Portal Operations</h4>
+                        <div class="space-y-1.5 text-xs text-academicStone-200">
+                            <p><i class="fa-solid fa-user-gear text-hubGreen-600 w-4"></i> Desk Admin: <span class="text-white font-medium">Sabuj</span></p>
+                            <p><i class="fa-solid fa-building-columns text-hubGreen-600 w-4"></i> Distribution: Student Terminal Network Matrix</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xs uppercase tracking-widest font-bold text-hubGreen-600 mb-2">Direct Contact Terminal</h4>
+                        <div class="space-y-1.5 text-xs text-academicStone-200">
+                            <p><a href="tel:9678457890" class="hover:text-white transition-colors"><i class="fa-solid fa-phone text-hubGreen-600 w-4"></i> +91 9678457890</a></p>
+                            <p><a href="mailto:sabuj9678@gmail.com" class="hover:text-white transition-colors"><i class="fa-solid fa-envelope text-hubGreen-600 w-4"></i> sabuj9678@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-academicStone-700 mt-8 pt-5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-academicStone-200">
+                <p>&copy; 2026 SABUJ_BOOK_HUB. English Language CRUD LocalStorage Engine Platform. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-3 sm:mt-0">
+                    <span class="hover:underline cursor-pointer">Digital Terms</span>
+                    <span class="hover:underline cursor-pointer">Privacy Protocol</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE FORM MODULE DIALOG (CREATE & UPDATE GATEWAY MODAL) -->
+    <div id="bookPortalFormModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-academicStone-950/60 backdrop-blur-sm">
+        <div class="bg-white dark:bg-academicStone-900 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden border border-academicStone-100 dark:border-academicStone-800 transform transition-transform duration-200 scale-100">
+            
+            <!-- Contextual Gradient Top Header -->
+            <div id="modalHeadlineAccent" class="p-5 text-white bg-gradient-to-r from-hubGreen-700 to-hubGreen-900 flex justify-between items-center">
+                <div>
+                    <h3 id="modalPrimaryHeading" class="text-lg font-bold font-serif">Secure Scholastic Order</h3>
+                    <p class="text-[11px] text-hubGreen-100 mt-0.5">Verify accuracy of academic metadata inputs</p>
+                </div>
+                <button onclick="dismissPortalModal()" class="w-7 h-7 rounded-full bg-black/20 hover:bg-black/40 text-white flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Internal Target Submission Processing Form Engine -->
+            <form id="bookActionForm" class="p-5 space-y-4">
+                <!-- Internal Pipeline State Storage Registers -->
+                <input type="hidden" id="cacheTargetOrderId">
+                <input type="hidden" id="cacheTargetBookId">
+
+                <div>
+                    <label class="block text-[11px] font-bold uppercase tracking-wider text-academicStone-700 dark:text-academicStone-400 mb-1">Target Textbook Profile</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-2 text-academicStone-400"><i class="fa-solid fa-book text-xs"></i></span>
+                        <input type="text" id="displayBookTitle" readonly class="w-full pl-8 pr-3 py-1.5 rounded-lg bg-academicStone-100 dark:bg-academicStone-800 border-0 font-medium text-xs text-academicStone-700 dark:text-academicStone-300 focus:outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="studentProfileName" class="block text-[11px] font-bold uppercase tracking-wider text-academicStone-700 dark:text-academicStone-400 mb-1">Student Full Name</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-2 text-academicStone-400"><i class="fa-solid fa-id-card text-xs"></i></span>
+                        <input type="text" id="studentProfileName" required placeholder="e.g., Alexander Mercer" class="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg border border-academicStone-200 dark:border-academicStone-700 bg-transparent focus:ring-2 focus:ring-hubGreen-700 focus:outline-none transition-all">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="studentIdentityId" class="block text-[11px] font-bold uppercase tracking-wider text-academicStone-700 dark:text-academicStone-400 mb-1">Official Student ID Code</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-2 text-academicStone-400"><i class="fa-solid fa-hashtag text-xs"></i></span>
+                        <input type="text" id="studentIdentityId" required placeholder="e.g., STU-2026-991A" class="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg border border-academicStone-200 dark:border-academicStone-700 bg-transparent focus:ring-2 focus:ring-hubGreen-700 focus:outline-none transition-all">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="deliveryDropLocation" class="block text-[11px] font-bold uppercase tracking-wider text-academicStone-700 dark:text-academicStone-400 mb-1">Campus Delivery / Hostel Block Address</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-2.5 text-academicStone-400"><i class="fa-solid fa-compass text-xs"></i></span>
+                        <textarea id="deliveryDropLocation" rows="3" required placeholder="Specify Room, Hostel Block, Floor, Sector, University main campus address..." class="w-full pl-8 pr-3 py-1.5 text-xs rounded-lg border border-academicStone-200 dark:border-academicStone-700 bg-transparent focus:ring-2 focus:ring-hubGreen-700 focus:outline-none transition-all"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-3 pt-1">
+                    <button type="button" onclick="dismissPortalModal()" class="w-1/2 py-2.5 bg-academicStone-100 hover:bg-academicStone-200 dark:bg-academicStone-800 dark:hover:bg-academicStone-700 rounded-xl text-xs font-bold transition-colors">
+                        Cancel Fields
+                    </button>
+                    <button type="submit" class="w-1/2 py-2.5 bg-hubGreen-700 hover:bg-hubGreen-800 text-white rounded-xl text-xs font-bold shadow-sm transition-colors">
+                        Confirm Allocation
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CORE JAVASCRIPT LOCALSTORAGE OPERATIONS ENGINE -->
+    <script>
+        // STATIC BIBLIOGRAPHIC REPOSITORY (READ SOURCE DATA)
+        const BOOKSTORE_STATIC_REPOSITORY = [
+            {
+                id: 5001,
+                title: "Advanced Engineering Mathematics",
+                author: "Dr. Erwin Kreyszig",
+                desc: "Comprehensive manual containing exhaustive models for advanced calculus, linear algebra, vector fields, and structural complex probability maps.",
+                rateFee: "₹450 / Semester",
+                img: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 5002,
+                title: "Architectures of Quantum Computation",
+                author: "Prof. Liam Sterling",
+                desc: "An introduction to microscopic logic gates, superposition frameworks, hardware algorithms, and cryo-hardware node networking layers.",
+                rateFee: "₹600 / Semester",
+                img: "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 5003,
+                title: "Principles of Macroeconomic Theory",
+                author: "N. Gregory Mankiw",
+                desc: "Examines domestic productivity structures, quantitative fiscal metrics, aggregate financial policies, market behavior, and global supply systems.",
+                rateFee: "₹380 / Semester",
+                img: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        // APPLIED SYSTEM STATE CONTAINER OBJECT
+        let localStateBookOrders = JSON.parse(localStorage.getItem('SABUJ_HUB_PERSISTENT_ARRAYS')) || [];
+
+        // LOAD DISPATCH INITIALIZATION
+        document.addEventListener('DOMContentLoaded', () => {
+            generateCatalogLayout();
+            refreshOrderLogisticsDisplay();
+            configureThematicToggleEngine();
+        });
+
+        // THEMATIC CONFIGURATOR
+        function configureThematicToggleEngine() {
+            const toggleElement = document.getElementById('hubThemeEngineToggle');
+            
+            if (localStorage.getItem('sabuj_hub_theme_spec') === 'dark' || 
+                (!('sabuj_hub_theme_spec' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+
+            toggleElement.addEventListener('click', () => {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('sabuj_hub_theme_spec', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('sabuj_hub_theme_spec', 'dark');
+                }
+            });
+        }
+
+        // CRUD: READ CAPABILITIES (RENDER BOOK CARDS GRID)
+        function generateCatalogLayout() {
+            const galleryTarget = document.getElementById('bookShowcaseGrid');
+            galleryTarget.innerHTML = BOOKSTORE_STATIC_REPOSITORY.map(book => `
+                <div class="bg-white dark:bg-academicStone-900 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-academicStone-100 dark:border-academicStone-800 flex flex-col group transition-all duration-300">
+                    <div class="h-60 overflow-hidden relative bg-academicStone-100 dark:bg-academicStone-800">
+                        <img src="${book.img}" alt="${book.title}" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <span class="absolute bottom-4 right-4 bg-hubGreen-700 font-bold tracking-wide text-white px-3 py-1 rounded-lg text-xs shadow-md">
+                            ${book.rateFee}
+                        </span>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <span class="text-[10px] text-hubGreen-700 dark:text-hubGreen-100 font-bold uppercase tracking-widest block mb-1">Author: ${book.author}</span>
+                        <h3 class="text-lg font-bold font-serif text-academicStone-900 dark:text-white group-hover:text-hubGreen-700 transition-colors line-clamp-1">${book.title}</h3>
+                        <p class="text-xs text-academicStone-700 dark:text-academicStone-400 mt-2 flex-grow leading-relaxed line-clamp-3">${book.desc}</p>
+                        
+                        <div class="mt-5 pt-3 border-t border-academicStone-100 dark:border-academicStone-800">
+                            <button onclick="executeCreateFlowGateway(${book.id})" class="w-full bg-academicStone-900 hover:bg-hubGreen-700 dark:bg-academicStone-800 dark:hover:bg-hubGreen-700 text-white text-xs py-2.5 rounded-xl font-bold tracking-wide transition-colors flex items-center justify-center space-x-1.5 shadow-sm">
+                                <i class="fa-solid fa-arrow-right-to-bracket text-[10px]"></i>
+                                <span>Place Order Now</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // CRUD: READ AND PRESENT SYSTEM ACTIVE QUEUE STREAM COMPONENTS
+        function refreshOrderLogisticsDisplay() {
+            const emptyFrame = document.getElementById('emptyCatalogState');
+            const collectionContainer = document.getElementById('activeOrdersLayoutGrid');
+
+            if (localStateBookOrders.length === 0) {
+                emptyFrame.classList.remove('hidden');
+                collectionContainer.classList.add('hidden');
+                return;
+            }
+
+            emptyFrame.classList.add('hidden');
+            collectionContainer.classList.remove('hidden');
+
+            collectionContainer.innerHTML = localStateBookOrders.map(record => `
+                <div class="bg-white dark:bg-academicStone-900 border border-academicStone-200 dark:border-academicStone-800 p-5 rounded-2xl shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-start justify-between border-b border-academicStone-100 dark:border-academicStone-800 pb-2 mb-3">
+                            <div>
+                                <span class="text-[10px] font-bold text-hubGreen-700 dark:text-hubGreen-100 uppercase tracking-wider block">Fulfillment Pipe Allocation</span>
+                                <h4 class="text-base font-bold font-serif text-academicStone-900 dark:text-stone-100 line-clamp-1">${escapeSecuredString(record.bookName)}</h4>
+                            </div>
+                            <span class="text-[9px] font-mono bg-academicStone-100 dark:bg-academicStone-800 text-academicStone-700 dark:text-academicStone-300 px-2 py-0.5 rounded font-bold">${record.id}</span>
+                        </div>
+                        
+                        <div class="space-y-1 text-xs my-3">
+                            <p class="text-academicStone-700 dark:text-academicStone-400"><span class="font-medium text-academicStone-900 dark:text-stone-200">Recipient Student:</span> ${escapeSecuredString(record.studentName)}</p>
+                            <p class="text-academicStone-700 dark:text-academicStone-400"><span class="font-medium text-academicStone-900 dark:text-stone-200">ID Credentials:</span> <span class="font-mono bg-stone-50 dark:bg-stone-950 px-1 py-0.2 rounded">${escapeSecuredString(record.studentIdCode)}</span></p>
+                            <p class="text-academicStone-700 dark:text-academicStone-400 line-clamp-2"><span class="font-medium text-academicStone-900 dark:text-stone-200"><i class="fa-solid fa-location-arrow mr-1 text-[10px]"></i> Drop:</span> ${escapeSecuredString(record.addressLocation)}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-end space-x-2 pt-3 border-t border-academicStone-100 dark:border-academicStone-800 mt-2">
+                        <button onclick="executeUpdateFlowGateway('${record.id}')" class="px-3 py-1.5 text-[11px] font-bold bg-academicStone-100 hover:bg-academicStone-200 dark:bg-academicStone-800 dark:hover:bg-academicStone-700 text-academicStone-900 dark:text-stone-200 rounded-lg transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-user-pen text-hubGreen-700"></i> Edit Details
+                        </button>
+                        <button onclick="executeDeleteAction('${record.id}')" class="px-3 py-1.5 text-[11px] font-bold bg-red-50 dark:bg-red-950/20 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-950/40 rounded-lg transition-colors flex items-center gap-1">
+                            <i class="fa-solid fa-ban"></i> Cancel Request
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // CRUD WINDOW CONTROL SYSTEM (MODAL BRIDGE HANDLERS)
+        function executeCreateFlowGateway(bookId) {
+            const targetBookElement = BOOKSTORE_STATIC_REPOSITORY.find(b => b.id === bookId);
+            if (!targetBookElement) return;
+
+            document.getElementById('bookActionForm').reset();
+            document.getElementById('cacheTargetOrderId').value = '';
+            document.getElementById('cacheTargetBookId').value = targetBookElement.id;
+            document.getElementById('displayBookTitle').value = targetBookElement.title;
+            
+            document.getElementById('modalPrimaryHeading').innerText = "Secure Scholastic Order";
+            document.getElementById('modalHeadlineAccent').className = "p-5 text-white bg-gradient-to-r from-hubGreen-700 to-hubGreen-900 flex justify-between items-center";
+            
+            toggleModalDisplayState(true);
+        }
+
+        function executeUpdateFlowGateway(orderId) {
+            const existingOrder = localStateBookOrders.find(o => o.id === orderId);
+            if (!existingOrder) return;
+
+            document.getElementById('cacheTargetOrderId').value = existingOrder.id;
+            document.getElementById('cacheTargetBookId').value = existingOrder.bookId;
+            document.getElementById('displayBookTitle').value = existingOrder.bookName;
+            document.getElementById('studentProfileName').value = existingOrder.studentName;
+            document.getElementById('studentIdentityId').value = existingOrder.studentIdCode;
+            document.getElementById('deliveryDropLocation').value = existingOrder.addressLocation;
+
+            document.getElementById('modalPrimaryHeading').innerText = "Modify Active Request Details";
+            document.getElementById('modalHeadlineAccent').className = "p-5 text-white bg-gradient-to-r from-academicStone-700 to-academicStone-900 flex justify-between items-center";
+
+            toggleModalDisplayState(true);
+        }
+
+        // MODAL TOGGLE ROUTINE
+        function toggleModalDisplayState(open) {
+            const containerNode = document.getElementById('bookPortalFormModal');
+            if (open) containerNode.classList.remove('hidden');
+            else containerNode.classList.add('hidden');
+        }
+
+        function dismissPortalModal() {
+            toggleModalDisplayState(false);
+        }
+
+        // CRUD ACTIONS: FORM PROCESS GATEWAY SUBMIT ROUTER (Handles both CREATE and UPDATE)
+        document.getElementById('bookActionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const orderIdToken = document.getElementById('cacheTargetOrderId').value;
+            const bookIdToken = parseInt(document.getElementById('cacheTargetBookId').value);
+            const verifiedRootBook = BOOKSTORE_STATIC_REPOSITORY.find(b => b.id === bookIdToken);
+
+            const compiledDataPackage = {
+                studentName: document.getElementById('studentProfileName').value.trim(),
+                studentIdCode: document.getElementById('studentIdentityId').value.trim(),
+                addressLocation: document.getElementById('deliveryDropLocation').value.trim(),
+                bookId: bookIdToken,
+                bookName: verifiedRootBook.title
+            };
+
+            if (orderIdToken) {
+                // UPDATE RECORD STATE WITHIN POOL ARRAY
+                localStateBookOrders = localStateBookOrders.map(item => 
+                    item.id === orderIdToken ? { ...item, ...compiledDataPackage } : item
+                );
+            } else {
+                // CREATE A NEW BIBLIO ALLOCATION STATE ROW
+                compiledDataPackage.id = "BHK-" + Math.floor(1000 + Math.random() * 9000);
+                localStateBookOrders.push(compiledDataPackage);
+            }
+
+            persistStateToLocalSync();
+            toggleModalDisplayState(false);
+            
+            // UX Smooth viewport alignment to let user confirm visual updates
+            document.getElementById('orderTrackerSection').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // CRUD FLOW: DELETE REQUISITION ROUTINE
+        function executeDeleteAction(orderId) {
+            const triggerWarningApproval = confirm("Student Verification Prompt: Are you sure you want to cancel and remove this book request allocation?");
+            if (triggerWarningApproval) {
+                localStateBookOrders = localStateBookOrders.filter(o => o.id !== orderId);
+                persistStateToLocalSync();
+            }
+        }
+
+        // REPOSITORY ENGINE STORAGE SYNC HELPER
+        function persistStateToLocalSync() {
+            localStorage.setItem('SABUJ_HUB_PERSISTENT_ARRAYS', JSON.stringify(localStateBookOrders));
+            refreshOrderLogisticsDisplay();
+        }
+
+        // SECURITY INPUT XSS PROTECTION PRUNING FILTER
+        function escapeSecuredString(rawCode) {
+            return rawCode.replace(/[&<>'"]/g, identityToken => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[identityToken] || identityToken));
+        }
+    </script>
+</body>
+</html>
